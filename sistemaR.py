@@ -11,10 +11,8 @@ def k_nn(funcion, user1, reverse,data):
 			temp1 = str(funcion(data[user1],data[key]))
 			if temp1 != 'Naff' and temp1 != 'None':
 				currentRating[key]=temp1
-				#print(user1 , key, currentRating[key])
 	sorted_desserts = dict(sorted(currentRating.items(), key=lambda item:item[1],reverse=reverse))
 	currentRating={}
-	#print(sorted_desserts)
 	for key,valor in sorted_desserts.items():
 		if aux == umbral :
 			break
@@ -42,7 +40,6 @@ def euclidean(user1, user2):
 	c_Ratings = False
 	for key in user1:
 		if key in user2:
-			
 			dist += pow(abs(user1[key]-user2[key]),2)
 			c_Ratings = True
 	if c_Ratings:
@@ -96,12 +93,10 @@ def coseno(user1, user2):
 			sum_y2 += y**2
 	if n == 0:
 		return 'None'
-
 	if sum_x2 == sum_y2:
 		denominator = sum_x2
 	else:
 		denominator = round(pow(sum_x2,1/2) * pow(sum_y2,1/2),8)
-	
 	if denominator == 0:
 		return 'Naff'
 	else:
@@ -144,7 +139,6 @@ def recomendar(user1,numRec,data):
 					if not key in  data[user1] and rating > ratingMayor-1:
 						currentRating[key] = rating
 				sorted_desserts = dict(sorted(currentRating.items() , key=lambda item:item[1],reverse=True))
-				#print("sorted_desserts" , sorted_desserts)
 				for key in sorted_desserts:
 					if not key in recomendarID:
 						recomendar.append(BuscarId(key))
@@ -186,7 +180,7 @@ def loadData(path=''):
         if temp != line[0]:
         	users.append(line[0])
         	temp = line[0]
-   
+ 
         if users[temp1] == line[0]:
         	currentRating[book]=float(line[2].strip().strip('"'))
         	data[users[temp1].strip('"')] = currentRating
