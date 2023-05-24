@@ -16,6 +16,7 @@ class dataBase:
             if u not in data:
                 data[u] = {}
             data[u][m] = r
+
         return data
 
 def k_nn(funcion, user1, reverse,data):
@@ -37,7 +38,7 @@ def k_nn(funcion, user1, reverse,data):
             #print(key,valor)
             aux +=1
     return currentRating
-  
+
 def coseno(user1, user2):
     sum_xy= 0
     sum_x2 = 0
@@ -78,6 +79,7 @@ def ratingMayorUser(user1,data):
         ratingMayor = valor
         break
     return ratingMayor
+
 
 def recomendar(user1,numRec,data):
     recomendarID = []
@@ -128,7 +130,7 @@ dataLocal=data.leerDatos()
 f = time.time()
 print("tiempoData : ",f - i)
 
-i_knn = time.time()
-print(recomendar(69000,3,dataLocal))
-f_knn = time.time()
-print("tiempoRecomendar : ",f_knn - i_knn)
+i_rec = time.time()
+print(recomendar(69000,5,dataLocal))
+f_rec = time.time()
+print(" tiempoRecomendar : ",f_rec - i_rec)
